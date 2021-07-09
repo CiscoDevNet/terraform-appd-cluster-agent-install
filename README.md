@@ -1,1 +1,2 @@
-# terraform-appd-cluster-agent-install
+# appd-machine-cluster-agent-installation
+This repo deploys the AppDynamics machine and cluster agent

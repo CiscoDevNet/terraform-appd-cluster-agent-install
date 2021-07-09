@@ -1,0 +1,5 @@
+secret.tfvars
+da-compute-kubeconfig.yml
+terraform.tfstate.backup
+terraform.tfstate
+cert.pem
