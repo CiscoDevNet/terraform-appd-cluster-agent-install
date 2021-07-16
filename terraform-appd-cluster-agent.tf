@@ -49,7 +49,7 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path = "da-compute-kubeconfig.yml"
+  config_path = "da-compute-kubeconfig.yml" # NOTE: Change this value to your kubeconfig file
 }
 
 provider "helm" {
