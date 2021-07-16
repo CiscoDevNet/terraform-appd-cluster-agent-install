@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoDevNet/terraform-appd-cluster-agent-install)
+
 # Installing the Appdynamics cluster agent with Terraform
 This repo contains shows how we can automation the installation of the AppDynamics `cluster-agent` on Kubernetes using Terraform.
 
