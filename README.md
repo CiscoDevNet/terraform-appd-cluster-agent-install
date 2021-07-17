@@ -3,7 +3,7 @@
 # Installing the Appdynamics cluster agent with Terraform
 This repo contains shows how we can automation the installation of the AppDynamics `cluster-agent` on Kubernetes using Terraform.
 
-### Requirements
+## Requirements
 
 You'll require the following to make this work in your environment:
 
@@ -13,7 +13,7 @@ You'll require the following to make this work in your environment:
 - Create your own `secret.tfvars` file with values set for variables mentioned in the lab further down in this README.md file
 - Modify the variable `nsToMonitor` to ensure you are monitoring valid namespaces you would like to monitor with the Cluster Agent
 
-### Credential values required in `secret.tfvar`
+## Credential values required in `secret.tfvar`
 
 Terraform keeps sensitive values in a file named `secret.tfvar`and, because the values contain sensitive information such as account credentials, it's not posted here so you'll need to make one using your credentials. 
 
@@ -32,7 +32,7 @@ Terraform keeps sensitive values in a file named `secret.tfvar`and, because the 
 > Be sure to add `secret.tfvar` to your `*.gitignore` file to ensure you don't accidentally expose your credentials if you push your changes back to GitHub or other Git repository.
 
 
-### Example `secret.tfvar` file
+## Example `secret.tfvar` file
 ```
 # AppDynamics controller credentials
 controller_url       = "https://example.saas.appdynamics.com:443"
