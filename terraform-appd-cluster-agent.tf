@@ -89,7 +89,7 @@ resource "helm_release" "metrics-server" {
 resource "helm_release" "cluster-agent" {
   name = "cluster-agent"
   namespace = "appdynamics"
-  repository = "https://appdynamics.github.io/appdynamics-charts"
+  repository = "https://ciscodevnet.github.io/appdynamics-charts"
   chart = "cluster-agent"
 
   values = [
