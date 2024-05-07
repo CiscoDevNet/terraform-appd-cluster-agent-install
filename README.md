@@ -9,7 +9,7 @@ You'll require the following to make this work in your environment:
 
 - Kubernetes installed - we are using Intersight IKS (Intersight Kubernetes Service) Kubernetes deployed environment
 - A Kubernetes `kubeconfig` file, ours is named `da-compute-kubeconfig.yml` but you can name yours with a name that makes the most sense for you but be sure to change the variable name in `terraform-appd-cluster-agent.tf`.
-- Helm (we tested with version 3.3.4)
+- Helm (we tested with version 3.8.2)
 - Create your own `secret.tfvars` file with values set for variables mentioned in the lab further down in this README.md file
 - Modify the variable `nsToMonitor` to ensure you are monitoring valid namespaces you would like to monitor with the Cluster Agent
 
@@ -20,13 +20,13 @@ Terraform keeps sensitive values in a file named `secret.tfvar`and, because the 
 >
 > Be sure to add `secret.tfvar` to your `*.gitignore` file to be sure you don't accidentally expose your credentials if you push your changes back to GitHub or other Git repository.
 
-| Variable               | Description |
-| -----------------------| ----------- |
-| controller_url         | The URL of your AppDynamics Controller passed as a FQDN and port number. For example: https://example.saas.appdynamics.com:443                                                  |
-| controller_account     | The account name associated with you AppDynamics Controller.            |
-| controller_username    | Your username associated with the AppDynamics Controller.               |
-| controller_password    | The password of your username associated with the AppDynamics Controller                                                                                         |
-| controller_accessKey   | The account access key for your AppDynamics Controller.                 |
+| Variable               | Description                                                                                                                  |
+| -----------------------|------------------------------------------------------------------------------------------------------------------------------|
+| controller_url         | The URL of your AppDynamics Controller passed as a FQDN and port number. For example: https://example.saas.appdynamics.com:443 |
+| controller_account     | The account name associated with you AppDynamics Controller.                                                                 |
+| controller_username    | Your username associated with the AppDynamics Controller.                                                                    |
+| controller_password    | The password of your username associated with the AppDynamics Controller                                                     |
+| controller_accessKey   | The account access key for your AppDynamics Controller. **You may not need username and password if using accessKey.**           |
 
 >
 > Be sure to add `secret.tfvar` to your `*.gitignore` file to ensure you don't accidentally expose your credentials if you push your changes back to GitHub or other Git repository.

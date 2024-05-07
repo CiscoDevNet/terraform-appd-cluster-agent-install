@@ -77,19 +77,19 @@ resource "kubernetes_namespace" "metrics" {
 resource "helm_release" "metrics-server" {
   name = "metrics-server"
   namespace = "metrics"
-  repository = "https://charts.bitnami.com/bitnami"
+  repository = "https://kubernetes-sigs.github.io/metrics-server/" # https://github.com/kubernetes-sigs/metrics-server/tree/master/charts/metrics-server
   chart = "metrics-server"
 
-  values = [
-    file("${path.module}/metrics-server-values.yaml")
-  ]
-
+  set {
+    name  = "args.0"
+    value = "--kubelet-preferred-address-types=InternalIP"
+  }
 }
 # Deploy the AppDynamics cluster agent using AppDynamic's helm chart
 resource "helm_release" "cluster-agent" {
   name = "cluster-agent"
   namespace = "appdynamics"
-  repository = "https://ciscodevnet.github.io/appdynamics-charts"
+  repository = "https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts/"
   chart = "cluster-agent"
 
   values = [
@@ -120,5 +120,5 @@ resource "helm_release" "cluster-agent" {
   set_sensitive {
     name  = "controllerInfo.accessKey"
     value = var.controller_accessKey
-  }
+  } # If using accessKey, it is possible you may not need username and password
 }
