@@ -20,13 +20,13 @@ Terraform keeps sensitive values in a file named `secret.tfvar`and, because the 
 >
 > Be sure to add `secret.tfvar` to your `*.gitignore` file to be sure you don't accidentally expose your credentials if you push your changes back to GitHub or other Git repository.
 
-| Variable               | Description                                                                                                                  |
-| -----------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Variable               | Description |
+| -----------------------| ----------- |
 | controller_url         | The URL of your AppDynamics Controller passed as a FQDN and port number. For example: https://example.saas.appdynamics.com:443 |
-| controller_account     | The account name associated with you AppDynamics Controller.                                                                 |
-| controller_username    | Your username associated with the AppDynamics Controller.                                                                    |
+| controller_account     | The account name associated with you AppDynamics Controller.            |
+| controller_username    | Your username associated with the AppDynamics Controller.               |
 | controller_password    | The password of your username associated with the AppDynamics Controller                                                     |
-| controller_accessKey   | The account access key for your AppDynamics Controller. **You may not need username and password if using accessKey.**           |
+| controller_accessKey   | The account access key for your AppDynamics Controller. **You may not need username and password if using accessKey.**                |
 
 >
 > Be sure to add `secret.tfvar` to your `*.gitignore` file to ensure you don't accidentally expose your credentials if you push your changes back to GitHub or other Git repository.
@@ -85,3 +85,4 @@ You can also add monitoring of the host itself (the machines hosting Kubernetes 
 ## Links to DevNet Learning Labs
 
 [AppDynamics Fundamentals](https://developer.cisco.com/learning/modules/appdynamics-fundamentals)
+
