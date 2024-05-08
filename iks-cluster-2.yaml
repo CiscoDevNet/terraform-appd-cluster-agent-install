@@ -1,12 +1,24 @@
 # AppDynamics controller info
 # controllerInfo values are declared in terraform-appd-cluster-agent.tf
+
+installClusterAgent: true
+
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: 20.7.0
+  agentTag: latest
   operatorImage: docker.io/appdynamics/cluster-agent-operator
   operatorTag: latest
-  imagePullPolicy: Always 
+  imagePullPolicy: Always
 
-  # Cluster agent config
+## Controller Info is completed in the TF file due to sensitive information
+#controllerInfo:
+#  url: https://<controller-url>:443
+#  account: <appdynamics-controller-account>
+#  username: <appdynamics-controller-username>
+#  password: <appdynamics-controller-password>
+#  accessKey: <appdynamics-controller-access-key>
+
+# Cluster agent config
 clusterAgent:
-  nsToMonitor: [default,iks,kube-node-lease,kube-public,kube-system,appdynamics]
+   #nsToMonitor: [default,iks,kube-node-lease,kube-public,kube-system,appdynamics]  # option to monitor specific namespaces
+   nsToMonitorRegex: .*  # option to monitor all pods in all namespaces
