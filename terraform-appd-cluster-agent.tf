@@ -63,40 +63,48 @@ resource "kubernetes_namespace" "appdynamics" {
     name = "appdynamics"
   }
 }
-
 resource "kubernetes_namespace" "metrics" {
   metadata {
     name = "metrics"
   }
 }
+
 # Per cluster agent requirements, we'll first need metrics-server installed.
 # Comment this resource and the metrics namespace above if metrics-server
-# is already installed in your environment. Also, note the extraArgs
-# set in metrics-server-values.yaml and remove or readjust these values
-# as needed for your environment.
+# is already installed in your environment.
+# Consider utilizing a metrics-server-values.yaml file to set additional
+# values if more customization is needed similar to cluster-agent.
 resource "helm_release" "metrics-server" {
   name = "metrics-server"
   namespace = "metrics"
   repository = "https://kubernetes-sigs.github.io/metrics-server/" # https://github.com/kubernetes-sigs/metrics-server/tree/master/charts/metrics-server
   chart = "metrics-server"
+  version    = "3.8.3"
 
   set {
     name  = "args.0"
     value = "--kubelet-preferred-address-types=InternalIP"
   }
 }
+
 # Deploy the AppDynamics cluster agent using AppDynamic's helm chart
 resource "helm_release" "cluster-agent" {
+  depends_on = [
+    helm_release.metrics-server
+  ]
+
   name = "cluster-agent"
   namespace = "appdynamics"
   repository = "https://appdynamics.jfrog.io/artifactory/appdynamics-cloud-helmcharts/"
   chart = "cluster-agent"
+  version = "1.21.362"
 
   values = [
     file("${path.module}/iks-cluster-2.yaml")
   ]
-# Values below are required the cluster agent configuration file. The values are
-# available in sensitive.yaml.
+
+  # Values below are required for the cluster agent configuration file.
+  # The values should be set via a secure method, consider a sensitive.yaml file, AWS Secrets Manager, GCP Secret Manager, or Azure Key Vault.
   set_sensitive {
     name  = "controllerInfo.url"
     value = var.controller_url

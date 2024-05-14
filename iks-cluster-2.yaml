@@ -5,9 +5,9 @@ installClusterAgent: true
 
 imageInfo:
   agentImage: docker.io/appdynamics/cluster-agent
-  agentTag: latest
+  agentTag: 24.3.0-362-amd64 # 24.3.0-362-arm64 is available
   operatorImage: docker.io/appdynamics/cluster-agent-operator
-  operatorTag: latest
+  operatorTag: 24.3.0-758-amd64 # 24.3.0-758-arm64 is available
   imagePullPolicy: Always
 
 ## Controller Info is completed in the TF file due to sensitive information
