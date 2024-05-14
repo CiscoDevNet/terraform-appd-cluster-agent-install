@@ -88,4 +88,4 @@ You can also add monitoring of the host itself (the machines hosting Kubernetes 
 
 ## Getting Support
 
-Currently, Terraform AppD Cluster Agent Install is **Community Supported** only. If you have any challenges, you can create a new Issue in the [Issues](/issues) area and hopefully a knowledgeable community member will reach back out to you with a resolution.
+Currently, Terraform AppD Cluster Agent Install is **Community Supported** only. If you have any challenges, you can create a new Issue in this repo's "Issues" area and hopefully a knowledgeable community member will reach back out to you with a resolution.
