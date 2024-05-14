@@ -86,3 +86,6 @@ You can also add monitoring of the host itself (the machines hosting Kubernetes 
 
 [AppDynamics Fundamentals](https://developer.cisco.com/learning/modules/appdynamics-fundamentals)
 
+## Getting Support
+
+At the moment Terraform AppD Cluster Agent Install is **Community Supported** only. If you have a challenge, you can create a new Issue in the [Issues](/issues) area and hopefully a knowledgeable community member will reach back out to you with a resolution.
